@@ -56,7 +56,7 @@ export_config_vars() {
 export_mix_env() {
   if [ -d $env_path ] && [ -f $env_path/MIX_ENV ]; then
     export MIX_ENV=$(cat $env_path/MIX_ENV)
-  else
+  elif [ -z "$MIX_ENV" ]; then
     export MIX_ENV=prod
   fi
 
